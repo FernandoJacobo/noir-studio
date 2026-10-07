@@ -86,8 +86,8 @@ const rating = copy.heroStats[0]
         <!-- Tarjeta flotante: servicio destacado -->
         <div
           v-if="featured"
-          class="absolute -left-4 top-10 w-56 surface-elevated p-3.5 sm:-left-10"
           v-motion
+          class="absolute -left-4 top-10 w-56 surface-elevated p-3.5 sm:-left-10"
           :initial="{ opacity: 0, y: 12 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 350, duration: 500 } }"
         >
@@ -105,8 +105,8 @@ const rating = copy.heroStats[0]
 
         <!-- Tarjeta flotante: reseñas -->
         <div
-          class="absolute -right-3 bottom-24 surface-elevated px-3.5 py-3 sm:-right-8"
           v-motion
+          class="absolute -right-3 bottom-24 surface-elevated px-3.5 py-3 sm:-right-8"
           :initial="{ opacity: 0, y: 12 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 500, duration: 500 } }"
         >

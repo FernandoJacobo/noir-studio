@@ -7,6 +7,7 @@ const props = defineProps<{ appointmentId: string | null }>()
 const emit = defineEmits<{ close: [] }>()
 
 const appointments = useAppointmentsStore()
+const brand = useBrand()
 const open = computed({
   get: () => !!props.appointmentId,
   set: v => !v && emit('close'),
@@ -30,7 +31,7 @@ function setStatus(status: AppointmentStatus) {
 
 const clientWhatsapp = computed(() => {
   if (!apt.value || !client.value) return '#'
-  return whatsappUrl(client.value.phone, `Hola ${client.value.name.split(' ')[0]}, te escribimos de ${useAppConfig().brand.name} para confirmar tu cita del ${formatDateLong(apt.value.date)} a las ${formatTime(apt.value.start)}.`)
+  return whatsappUrl(client.value.phone, `Hola ${client.value.name.split(' ')[0]}, te escribimos de ${brand.value.name} para confirmar tu cita del ${formatDateLong(apt.value.date)} a las ${formatTime(apt.value.start)}.`)
 })
 
 const sourceLabel = { online: 'Reserva en línea', admin: 'Creada en el panel', walk_in: 'Sin cita (walk-in)' } as const

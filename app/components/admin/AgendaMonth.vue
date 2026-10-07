@@ -4,6 +4,7 @@ import type { Appointment, ISODate } from '~~/types'
 const props = defineProps<{ date: ISODate, appointments: Appointment[] }>()
 const emit = defineEmits<{ pickDay: [ISODate], open: [string] }>()
 
+const NBSP = String.fromCharCode(160)
 const clients = useClientsStore()
 const settings = useSettingsStore()
 const now = useNowTicker()
@@ -60,7 +61,7 @@ const weeks = computed(() => {
                   @click="emit('open', a.id)"
                 >
                   <span class="size-1.5 shrink-0 rounded-full" :class="STATUS_STYLES[a.status].dot" />
-                  <span class="tabular-nums text-muted">{{ formatTime(a.start, { compact: true }).replace(/ /g, '') }}</span>
+                  <span class="tabular-nums text-muted">{{ formatTime(a.start, { compact: true }).replaceAll(NBSP, '') }}</span>
                   <span class="truncate">{{ clients.get(a.clientId)?.name.split(' ')[0] }}</span>
                 </button>
               </li>

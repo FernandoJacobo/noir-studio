@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { copy, brand } = useAppConfig()
+const { copy } = useAppConfig()
+const brand = useBrand()
 const settings = useSettingsStore()
 const now = useNowTicker()
 const todayDow = computed(() => now.value.getDay())

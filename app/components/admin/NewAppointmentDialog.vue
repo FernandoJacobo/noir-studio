@@ -70,6 +70,12 @@ watch(slots, (list) => {
   if (start.value !== null && !list.some(s => s.start === start.value)) start.value = null
 })
 
+/** Proxy para el select (no acepta `null`). */
+const startModel = computed({
+  get: () => start.value ?? undefined,
+  set: (v: number | undefined) => (start.value = v ?? null),
+})
+
 const statusOptions = [
   { value: 'confirmed' as const, label: 'Confirmada' },
   { value: 'pending' as const, label: 'Pendiente' },
@@ -212,7 +218,7 @@ function save() {
           <UiLabel for="na-time" :hint="staffId && serviceIds.length ? `${slots.length} libres` : undefined">
             Hora
           </UiLabel>
-          <UiSelect id="na-time" v-model="start" :options="slotOptions" :placeholder="slots.length ? 'Elegir' : 'Sin horarios'" :disabled="!slots.length" />
+          <UiSelect id="na-time" v-model="startModel" :options="slotOptions" :placeholder="slots.length ? 'Elegir' : 'Sin horarios'" :disabled="!slots.length" />
         </div>
       </div>
 

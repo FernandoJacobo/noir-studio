@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VChart from 'vue-echarts'
-import { use } from 'echarts/core'
+import { use, type EChartsCoreOption } from 'echarts/core'
 import { BarChart, LineChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -38,7 +38,7 @@ watch([() => colorMode.value, () => settings.settings.accent], () => nextTick(()
 
 const today = computed(() => props.data.at(-1)?.date)
 
-const option = computed(() => {
+const option = computed((): EChartsCoreOption => {
   const p = palette.value
   const isCount = props.metric === 'count'
   const values = props.data.map(d => (isCount ? d.count : d.revenue))
@@ -102,7 +102,7 @@ const option = computed(() => {
             areaStyle: { color: p.accent, opacity: 0.1 },
           },
     ],
-  }
+  } as EChartsCoreOption
 })
 </script>
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { brand, copy, author } = useAppConfig()
+const { copy, author } = useAppConfig()
+const brand = useBrand()
 const year = new Date().getFullYear()
 </script>
 

@@ -13,7 +13,7 @@ defineProps<{
   folio?: string
 }>()
 
-const { brand } = useAppConfig()
+const brand = useBrand()
 </script>
 
 <template>
