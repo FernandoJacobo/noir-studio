@@ -10,7 +10,7 @@ const event: CalendarEvent = {
   uid: 'apt_123@noirstudio.demo',
   title: 'Corte clásico · NOIR Studio',
   description: 'Folio NS-7K2Q9F\nCon Santiago Ríos; total $320, pago en sucursal',
-  location: 'Av. Chapultepec Sur 215, Col. Americana, Guadalajara',
+  location: 'Av. Principal 123, Col. Centro, Guadalajara',
   date: '2026-10-07',
   start: 16 * 60 + 30,
   duration: 45,

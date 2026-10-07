@@ -54,7 +54,7 @@ export default defineAppConfig({
     heroSecondaryCta: 'Ver servicios',
     heroStats: [
       { value: '4.9', label: 'en Google · 600+ reseñas' },
-      { value: '8 años', label: 'en la colonia Americana' },
+      { value: '8 años', label: 'en Guadalajara' },
     ],
     servicesTitle: 'Servicios',
     servicesSubtitle: 'Precios finales en MXN. Todos los servicios incluyen lavado, styling y bebida de cortesía.',
@@ -62,7 +62,7 @@ export default defineAppConfig({
     teamSubtitle: 'Cuatro especialistas, un mismo estándar: precisión, puntualidad y buena conversación.',
     testimonialsTitle: 'Lo que dicen nuestros clientes',
     locationTitle: 'Visítanos',
-    locationSubtitle: 'Estacionamiento en convenio a media cuadra. A 5 minutos de la glorieta Chapultepec.',
+    locationSubtitle: 'Estacionamiento en convenio a media cuadra. A unos minutos del centro de la ciudad.',
     ctaTitle: 'Tu próximo corte está a un minuto.',
     ctaSubtitle: 'Elige servicio, barbero y horario. Te confirmamos por WhatsApp.',
   },
