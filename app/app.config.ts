@@ -1,0 +1,104 @@
+/**
+ * Marca y configuración del demo.
+ *
+ * Para adaptar el demo a otro giro (consultorio, salón, estudio de tatuajes…)
+ * basta con editar este archivo y los datos semilla de `app/data/`.
+ * Los componentes no contienen textos de la marca.
+ */
+const h = (hh: number, mm = 0) => hh * 60 + mm
+
+export default defineAppConfig({
+  brand: {
+    name: 'NOIR Studio',
+    /** Wordmark: parte principal + sufijo opcional. */
+    wordmark: 'NOIR',
+    wordmarkSuffix: 'Studio',
+    slogan: 'Tu estilo, a tu hora.',
+    giro: 'Barbería & grooming premium',
+    description: 'Barbería y grooming premium en Guadalajara. Cortes de precisión, barba con toalla caliente y rituales de cuidado. Reserva en línea en menos de un minuto.',
+    city: 'Guadalajara',
+    address: 'Av. Chapultepec Sur 215, Col. Americana, 44160 Guadalajara, Jal.',
+    addressShort: 'Av. Chapultepec Sur 215, Col. Americana',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Av.+Chapultepec+Sur+215,+Americana,+Guadalajara,+Jal.',
+    phone: '3312345678',
+    whatsapp: '3312345678',
+    email: 'reservas@noirstudio.demo',
+    social: [
+      { label: 'Instagram', icon: 'lucide:instagram', href: 'https://instagram.com' },
+      { label: 'Facebook', icon: 'lucide:facebook', href: 'https://facebook.com' },
+      { label: 'TikTok', icon: 'lucide:music-2', href: 'https://tiktok.com' },
+    ],
+    timezone: 'America/Mexico_City',
+    /** Guadalajara no aplica horario de verano desde 2022. */
+    utcOffset: '-0600',
+    folioPrefix: 'NS',
+    siteUrl: 'https://noir-studio.pages.dev',
+    ogImage: '/og.png',
+  },
+
+  /** Horario del negocio. 0 = domingo … 6 = sábado. `null` = cerrado. */
+  businessHours: {
+    0: [{ start: h(10), end: h(15) }],
+    1: null,
+    2: [{ start: h(10), end: h(20) }],
+    3: [{ start: h(10), end: h(20) }],
+    4: [{ start: h(10), end: h(20) }],
+    5: [{ start: h(10), end: h(20) }],
+    6: [{ start: h(10), end: h(20) }],
+  },
+
+  booking: {
+    slotInterval: 15,
+    bufferMinutes: 0,
+    minAdvanceMinutes: 60,
+    maxDaysAhead: 45,
+    accent: '#C9B38A',
+  },
+
+  /** Vocabulario del giro: cambia "barbero" por "doctor", "estilista", "tatuador"… */
+  terms: {
+    professional: 'barbero',
+    professionals: 'barberos',
+    team: 'Equipo',
+    anyProfessional: 'Cualquiera disponible',
+    anyProfessionalHint: 'Te asignamos al barbero con el primer horario libre.',
+    client: 'cliente',
+    clients: 'clientes',
+    service: 'servicio',
+    services: 'servicios',
+  },
+
+  /** Textos del sitio público. */
+  copy: {
+    heroEyebrow: 'Barbería · Guadalajara',
+    heroTitle: 'Tu estilo,',
+    heroTitleItalic: 'a tu hora.',
+    heroSubtitle: 'Cortes de precisión, barba con toalla caliente y rituales de cuidado en un espacio pensado para desconectarte. Reserva en línea en menos de un minuto.',
+    heroPrimaryCta: 'Reservar cita',
+    heroSecondaryCta: 'Ver servicios',
+    heroStats: [
+      { value: '4.9', label: 'en Google · 600+ reseñas' },
+      { value: '8 años', label: 'en la colonia Americana' },
+    ],
+    servicesTitle: 'Servicios',
+    servicesSubtitle: 'Precios finales en MXN. Todos los servicios incluyen lavado, styling y bebida de cortesía.',
+    teamTitle: 'El equipo',
+    teamSubtitle: 'Cuatro especialistas, un mismo estándar: precisión, puntualidad y buena conversación.',
+    testimonialsTitle: 'Lo que dicen nuestros clientes',
+    locationTitle: 'Visítanos',
+    locationSubtitle: 'Estacionamiento en convenio a media cuadra. A 5 minutos de la glorieta Chapultepec.',
+    ctaTitle: 'Tu próximo corte está a un minuto.',
+    ctaSubtitle: 'Elige servicio, barbero y horario. Te confirmamos por WhatsApp.',
+  },
+
+  author: {
+    name: 'JacoboDev',
+    url: 'https://jacobodev.pages.dev',
+    label: 'jacobodev.pages.dev',
+  },
+
+  demo: {
+    adminUser: 'demo',
+    adminPassword: 'demo123',
+  },
+})
