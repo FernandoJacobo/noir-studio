@@ -180,6 +180,33 @@
     --picker-filter: invert(1);
   }
 
+  /* Todo lo accionable muestra la mano; lo deshabilitado, "no permitido". */
+  a[href],
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [role="checkbox"],
+  [role="radio"],
+  [role="switch"],
+  [role="tab"],
+  [role="option"],
+  [role="menuitem"],
+  [role="combobox"],
+  label[for],
+  label:has(> button[role="switch"]),
+  select,
+  summary,
+  input[type="color"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"],
+  [data-disabled] {
+    cursor: not-allowed;
+  }
+
   /* Los iconos nunca se encogen dentro de contenedores flex */
   .iconify {
     flex-shrink: 0;

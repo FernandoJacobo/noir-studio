@@ -9,7 +9,7 @@ const emit = defineEmits<{ select: [Event] }>()
   <DropdownMenuItem
     :disabled="disabled"
     :class="cn(
-      'flex h-8 cursor-default select-none items-center gap-2.5 rounded-[7px] px-2 text-[13px] outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-40 data-[highlighted]:bg-surface-2',
+      'flex h-8 cursor-pointer select-none items-center gap-2.5 rounded-[7px] px-2 text-[13px] outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-40 data-[highlighted]:bg-surface-2',
       danger ? 'text-danger' : 'text-foreground',
     )"
     @select="emit('select', $event)"

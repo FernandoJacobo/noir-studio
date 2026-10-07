@@ -120,7 +120,7 @@ function run(cmd: Command) {
                   v-for="cmd in group.items"
                   :key="cmd.id"
                   :value="cmd.id"
-                  class="flex h-10 cursor-default select-none items-center gap-3 rounded-[8px] px-2.5 text-[13px] outline-none data-[highlighted]:bg-surface-2"
+                  class="flex h-10 cursor-pointer select-none items-center gap-3 rounded-[8px] px-2.5 text-[13px] outline-none data-[highlighted]:bg-surface-2"
                   @select="run(cmd)"
                 >
                   <Icon :name="cmd.icon" class="size-4 text-muted" />

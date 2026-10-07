@@ -52,7 +52,7 @@ const options = computed(() => [
           role="radio"
           :aria-checked="booking.staffId === member.id"
           :class="cn(
-            'flex w-full items-center gap-3.5 rounded-[12px] border bg-surface p-3.5 text-left shadow-[inset_0_1px_0_var(--highlight)] transition-all duration-200 hover:border-border-strong',
+            'group flex w-full items-center gap-3.5 rounded-[12px] border bg-surface p-3.5 text-left shadow-[inset_0_1px_0_var(--highlight)] transition-all duration-200 cursor-pointer hover:-translate-y-0.5 hover:border-border-strong hover:bg-surface-2/50 hover:shadow-[inset_0_1px_0_var(--highlight),0_10px_24px_-12px_rgb(var(--shadow-color)/0.45)] active:translate-y-0 active:scale-[0.99]',
             booking.staffId === member.id && 'border-accent/70 bg-[color-mix(in_oklab,var(--accent)_7%,var(--surface))] ring-1 ring-accent/40',
           )"
           @click="booking.setStaff(member.id)"

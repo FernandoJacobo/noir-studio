@@ -37,7 +37,7 @@ const selected = computed(() => props.options.find(o => o.value === model.value)
             v-for="opt in options"
             :key="String(opt.value)"
             :value="opt.value"
-            class="relative flex h-8 cursor-default select-none items-center gap-2 rounded-[7px] pl-2 pr-8 text-[13px] outline-none data-[disabled]:opacity-40 data-[highlighted]:bg-surface-2"
+            class="relative flex h-8 cursor-pointer select-none items-center gap-2 rounded-[7px] pl-2 pr-8 text-[13px] outline-none data-[disabled]:opacity-40 data-[highlighted]:bg-surface-2"
           >
             <Icon v-if="opt.icon" :name="opt.icon" class="size-4 text-muted" />
             <SelectItemText>{{ opt.label }}</SelectItemText>

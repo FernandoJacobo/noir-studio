@@ -6,7 +6,7 @@ const appointments = useAppointmentsStore()
 const id = computed(() => String(route.params.id))
 const isNew = computed(() => route.query.nueva === '1')
 
-const { apt, serviceList, member, client, googleUrl, downloadIcs, whatsappLink } = useAppointmentDetails(() => appointments.get(id.value))
+const { apt, serviceList, member, client, googleUrl, whatsappLink } = useAppointmentDetails(() => appointments.get(id.value))
 
 useSeoMeta({ title: () => (apt.value ? `Cita ${apt.value.folio}` : 'Cita no encontrada'), robots: 'noindex' })
 
@@ -91,14 +91,10 @@ const headline = computed(() => {
         />
       </div>
 
-      <div v-if="!cancelled && !isPast" class="mx-auto mt-8 grid max-w-xl gap-2.5 sm:grid-cols-3">
+      <div v-if="!cancelled && !isPast" class="mx-auto mt-8 grid max-w-md gap-2.5 sm:grid-cols-2">
         <UiButton :href="googleUrl" target="_blank" variant="secondary" class="w-full">
           <Icon name="lucide:calendar-plus" class="size-4" />
           Google Calendar
-        </UiButton>
-        <UiButton variant="secondary" class="w-full" @click="downloadIcs">
-          <Icon name="lucide:download" class="size-4" />
-          Descargar .ics
         </UiButton>
         <UiButton :href="whatsappLink" target="_blank" variant="secondary" class="w-full">
           <Icon name="lucide:message-circle" class="size-4" />

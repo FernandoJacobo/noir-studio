@@ -15,7 +15,7 @@ Demo de portafolio de un **sistema de reservación de citas con panel de adminis
 **Sitio público**
 - Landing con navbar con blur, hero con widget en vivo de *próximo horario disponible*, servicios filtrables, equipo, testimonios en marquee, ubicación con indicador *Abierto ahora / Cierra a las…* y footer.
 - **Wizard de reservación** en 5 pasos: servicios (uno o varios), profesional o *cualquiera disponible*, calendario mensual propio + horarios agrupados en mañana/tarde/noche, datos con validación en vivo y confirmación tipo ticket. Resumen fijo en desktop y *bottom sheet* colapsable en móvil; el borrador se persiste para retomarlo si se recarga.
-- **Pantalla de la cita** (`/cita/:id`): check animado, folio, *Agregar a Google Calendar*, *Descargar .ics* (generado en el cliente), *Enviar por WhatsApp*, reagendar y cancelar.
+- **Pantalla de la cita** (`/cita/:id`): check animado, folio, *Agregar a Google Calendar*, *Enviar por WhatsApp*, reagendar y cancelar.
 
 **Panel de administración** (`/admin`)
 - Login de demostración con las credenciales visibles en pantalla.
@@ -126,7 +126,7 @@ scripts/                # generación de assets
 ## Decisiones técnicas
 
 - **Disponibilidad como función pura.** `getAvailableSlots` (`app/utils/availability.ts`) calcula *horario del negocio ∩ horario del profesional − citas existentes (± margen) − duración total*, en intervalos configurables, sin horarios pasados ni dentro de la anticipación mínima. La misma función alimenta el wizard, el reagendado, el diálogo de nueva cita, el widget del hero **y el generador de datos semilla**, por lo que las citas semilla nunca se traslapan (hay pruebas que lo verifican para varias fechas). Con *Cualquiera disponible* se asigna al profesional con menos carga ese día.
-- **Fechas sin zonas horarias en el estado.** Las citas guardan `date` (`yyyy-MM-dd`) y `start` (minutos desde medianoche) en hora local del negocio. Evita errores de UTC y simplifica el cálculo de huecos. El `.ics` usa `TZID=America/Mexico_City` con su `VTIMEZONE` (México ya no aplica horario de verano), CRLF, escape y plegado a 75 octetos según RFC 5545.
+- **Fechas sin zonas horarias en el estado.** Las citas guardan `date` (`yyyy-MM-dd`) y `start` (minutos desde medianoche) en hora local del negocio. Evita errores de UTC y simplifica el cálculo de huecos. El generador de `.ics` (`app/utils/ics.ts`, con pruebas; el botón de descarga se retiró de la interfaz) usa `TZID=America/Mexico_City` con su `VTIMEZONE` (México ya no aplica horario de verano), CRLF, escape y plegado a 75 octetos según RFC 5545.
 - **Una métrica por gráfica.** La tendencia del dashboard alterna *Citas* / *Ingresos* en lugar de usar doble eje, que confunde la lectura; incluye vista de tabla accesible. Los colores se leen de los tokens CSS, así que la gráfica cambia con el tema y con el acento.
 - **Semilla relativa al día de hoy.** Además de las ~40 citas entre la semana pasada y las próximas dos semanas, se genera un historial ligero de 30 días para que el dashboard tenga datos. `Restablecer demo` vuelve a generar todo con la fecha actual.
 - **SEO en un SPA.** Las metas Open Graph se declaran en `nuxt.config.ts` (desde `config/brand.ts`) para que estén en el HTML estático: los crawlers de WhatsApp y Facebook no ejecutan JavaScript.
