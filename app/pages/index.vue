@@ -1,7 +1,18 @@
+<script setup lang="ts">
+const { brand } = useAppConfig()
+
+useSeoMeta({
+  title: '',
+  description: brand.description,
+})
+</script>
+
 <template>
-  <div class="p-10">
-    <SharedLogo size="lg" />
-    <UiButton class="mt-4">Hola</UiButton>
-    <SharedThemeToggle />
+  <div>
+    <LandingHero />
+    <LandingServices />
+    <LandingTeam />
+    <LandingTestimonials />
+    <LandingLocation />
   </div>
 </template>

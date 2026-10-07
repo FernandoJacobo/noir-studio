@@ -86,3 +86,17 @@ export function percentChange(current: number, previous: number): number | null 
   if (!previous) return current ? null : 0
   return Math.round(((current - previous) / previous) * 100)
 }
+
+export const WEEKDAY_LABELS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'] as const
+export const WEEKDAY_SHORT = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'] as const
+/** Orden de la semana en México: lunes primero. */
+export const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0] as const
+
+/** "Hoy", "Mañana" o "Mié 7 oct". */
+export function relativeDayLabel(iso: ISODate, today: ISODate): string {
+  const d = Math.round((parseISODate(iso).getTime() - parseISODate(today).getTime()) / 86_400_000)
+  if (d === 0) return 'Hoy'
+  if (d === 1) return 'Mañana'
+  if (d === -1) return 'Ayer'
+  return formatDateShort(iso)
+}

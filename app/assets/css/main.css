@@ -180,6 +180,11 @@
     --picker-filter: invert(1);
   }
 
+  /* Los iconos nunca se encogen dentro de contenedores flex */
+  .iconify {
+    flex-shrink: 0;
+  }
+
   /* Scrollbars discretas */
   * {
     scrollbar-width: thin;

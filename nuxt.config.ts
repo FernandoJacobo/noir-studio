@@ -1,15 +1,21 @@
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 
-// Iconos que se resuelven de forma dinámica (no los detecta el escáner estático).
-const dynamicIcons = [
-  'lucide:scissors', 'lucide:sparkles', 'lucide:layers', 'lucide:droplets',
-  'lucide:circle-dashed', 'lucide:circle-check', 'lucide:check-check', 'lucide:circle-x', 'lucide:user-x',
-  'lucide:layout-dashboard', 'lucide:calendar-days', 'lucide:list-checks', 'lucide:users',
-  'lucide:briefcase', 'lucide:user-round', 'lucide:settings', 'lucide:sun', 'lucide:moon', 'lucide:monitor',
-  'lucide:instagram', 'lucide:facebook', 'lucide:music-2', 'lucide:message-circle',
-  'lucide:calendar-plus', 'lucide:rotate-ccw', 'lucide:log-out', 'lucide:globe',
-  'lucide:trending-up', 'lucide:trending-down', 'lucide:wallet', 'lucide:gauge', 'lucide:user-plus',
-]
+// Incluye en el bundle del cliente todos los iconos Lucide referenciados en el código,
+// también los que se resuelven dinámicamente (arrays, datos semilla, app.config).
+function collectIcons(dir: string, found = new Set<string>()): string[] {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name)
+    if (entry.isDirectory()) collectIcons(path, found)
+    else if (/\.(vue|ts)$/.test(entry.name)) {
+      for (const m of readFileSync(path, 'utf8').matchAll(/lucide:[a-z0-9-]+/g)) found.add(m[0])
+    }
+  }
+  return [...found]
+}
+const dynamicIcons = collectIcons(fileURLToPath(new URL('./app', import.meta.url)))
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-10-01',
@@ -23,6 +29,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/fonts',
     '@vueuse/nuxt',
+    '@vueuse/motion/nuxt',
     '@nuxt/eslint',
   ],
 
