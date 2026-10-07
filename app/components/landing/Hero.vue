@@ -110,9 +110,7 @@ const rating = copy.heroStats[0]
           :initial="{ opacity: 0, y: 12 }"
           :enter="{ opacity: 1, y: 0, transition: { delay: 500, duration: 500 } }"
         >
-          <div class="flex gap-0.5 text-accent">
-            <Icon v-for="n in 5" :key="n" name="lucide:star" class="size-3.5 fill-current" />
-          </div>
+          <SharedStars :rating="5" />
           <p v-if="rating" class="mt-1.5 text-xs font-medium">
             {{ rating.value }} {{ rating.label }}
           </p>

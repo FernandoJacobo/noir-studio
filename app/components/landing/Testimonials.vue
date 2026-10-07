@@ -27,9 +27,7 @@ const rows = [testimonials.slice(0, half), testimonials.slice(half)]
             :aria-hidden="copyIndex === 2 || undefined"
             :class="cn('w-[300px] shrink-0 surface-card p-5 sm:w-[360px]', copyIndex === 2 && 'motion-reduce:hidden')"
           >
-            <div class="flex gap-0.5 text-accent" role="img" :aria-label="`${t.rating} de 5 estrellas`">
-              <Icon v-for="n in 5" :key="n" name="lucide:star" :class="cn('size-3.5', n <= t.rating ? 'fill-current' : 'opacity-30')" />
-            </div>
+            <SharedStars :rating="t.rating" />
             <blockquote class="mt-3 text-[14px] leading-relaxed">
               “{{ t.text }}”
             </blockquote>
