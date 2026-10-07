@@ -57,3 +57,12 @@ export const inputClass = 'flex h-10 w-full rounded-[10px] border border-border 
 
 /** Superficie flotante para popovers, menús y selects. */
 export const floatingClass = 'z-50 surface-elevated p-1 text-sm text-foreground outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-[0.97] data-[state=open]:zoom-in-[0.97] data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1'
+
+/** Estilos por estado de cita (clases literales para que Tailwind las detecte). */
+export const STATUS_STYLES = {
+  pending: { bar: 'bg-warning', block: 'border-warning/35 bg-[color-mix(in_oklab,var(--warning)_13%,var(--surface))]', dot: 'bg-warning' },
+  confirmed: { bar: 'bg-info', block: 'border-info/35 bg-[color-mix(in_oklab,var(--info)_13%,var(--surface))]', dot: 'bg-info' },
+  completed: { bar: 'bg-success', block: 'border-success/35 bg-[color-mix(in_oklab,var(--success)_13%,var(--surface))]', dot: 'bg-success' },
+  cancelled: { bar: 'bg-border-strong', block: 'border-border border-dashed bg-surface-2/60 text-muted', dot: 'bg-border-strong' },
+  no_show: { bar: 'bg-danger', block: 'border-danger/35 bg-[color-mix(in_oklab,var(--danger)_12%,var(--surface))]', dot: 'bg-danger' },
+} as const

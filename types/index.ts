@@ -109,3 +109,17 @@ export interface Slot {
   /** Profesionales que pueden atender ese horario. */
   staffIds: string[]
 }
+
+/** Columna de la agenda (vista día = profesional, vista semana = día). */
+export interface AgendaColumn {
+  key: string
+  date: ISODate
+  /** En la vista día cada columna es un profesional. */
+  staffId?: string
+  label: string
+  sublabel?: string
+  photo?: string
+  isToday?: boolean
+  /** Horario laboral de la columna (lo demás se sombrea). */
+  ranges: TimeRange[]
+}
