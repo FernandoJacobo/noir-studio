@@ -11,3 +11,35 @@ export function whatsappUrl(phone: string | null, message: string): string {
   const full = digits.length === 10 ? `52${digits}` : digits
   return `https://wa.me/${full}?text=${text}`
 }
+
+export interface AppointmentMessageData {
+  businessName: string
+  folio: string
+  clientName: string
+  services: string[]
+  staffName?: string
+  dateLabel: string
+  timeLabel: string
+  total: string
+  address: string
+  link?: string
+}
+
+/**
+ * Mensaje de confirmación de cita para WhatsApp (con formato *negritas*).
+ * Sin emojis: el redireccionamiento de wa.me corrompe caracteres fuera del BMP.
+ */
+export function buildAppointmentMessage(d: AppointmentMessageData): string {
+  return [
+    `Hola, soy ${d.clientName}. Reservé una cita en *${d.businessName}*:`,
+    '',
+    `Fecha: *${d.dateLabel}*, *${d.timeLabel}*`,
+    `Servicio: ${d.services.join(' + ')}`,
+    ...(d.staffName ? [`Con: ${d.staffName}`] : []),
+    `Total: ${d.total}`,
+    `Dirección: ${d.address}`,
+    '',
+    `Folio: ${d.folio}`,
+    ...(d.link ? [d.link] : []),
+  ].join('\n')
+}
