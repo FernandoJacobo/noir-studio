@@ -14,7 +14,8 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "assets": "node scripts/generate-assets.mjs"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.140",

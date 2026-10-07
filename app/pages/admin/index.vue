@@ -95,9 +95,9 @@ const showTable = ref(false)
       </template>
     </section>
 
-    <div class="grid gap-4 xl:grid-cols-[minmax(0,1fr)_380px]">
+    <div class="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_380px]">
       <!-- Tendencia -->
-      <section class="surface-card p-4 sm:p-5" aria-labelledby="trend-title">
+      <section class="min-w-0 surface-card p-4 sm:p-5" aria-labelledby="trend-title">
         <div class="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h2 id="trend-title" class="text-[15px] font-semibold tracking-tight">
@@ -182,7 +182,7 @@ const showTable = ref(false)
       </section>
     </div>
 
-    <div class="grid gap-4 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <!-- Servicios más reservados -->
       <section class="surface-card p-4 sm:p-5" aria-labelledby="top-title">
         <h2 id="top-title" class="text-[15px] font-semibold tracking-tight">

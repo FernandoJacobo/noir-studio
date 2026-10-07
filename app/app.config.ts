@@ -2,39 +2,15 @@
  * Marca y configuración del demo.
  *
  * Para adaptar el demo a otro giro (consultorio, salón, estudio de tatuajes…)
- * basta con editar este archivo y los datos semilla de `app/data/`.
+ * basta con editar `config/brand.ts`, este archivo y los datos semilla de `app/data/`.
  * Los componentes no contienen textos de la marca.
  */
+import { brand } from '../config/brand'
+
 const h = (hh: number, mm = 0) => hh * 60 + mm
 
 export default defineAppConfig({
-  brand: {
-    name: 'NOIR Studio',
-    /** Wordmark: parte principal + sufijo opcional. */
-    wordmark: 'NOIR',
-    wordmarkSuffix: 'Studio',
-    slogan: 'Tu estilo, a tu hora.',
-    giro: 'Barbería & grooming premium',
-    description: 'Barbería y grooming premium en Guadalajara. Cortes de precisión, barba con toalla caliente y rituales de cuidado. Reserva en línea en menos de un minuto.',
-    city: 'Guadalajara',
-    address: 'Av. Chapultepec Sur 215, Col. Americana, 44160 Guadalajara, Jal.',
-    addressShort: 'Av. Chapultepec Sur 215, Col. Americana',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Av.+Chapultepec+Sur+215,+Americana,+Guadalajara,+Jal.',
-    phone: '3312345678',
-    whatsapp: '3312345678',
-    email: 'reservas@noirstudio.demo',
-    social: [
-      { label: 'Instagram', icon: 'lucide:instagram', href: 'https://instagram.com' },
-      { label: 'Facebook', icon: 'lucide:facebook', href: 'https://facebook.com' },
-      { label: 'TikTok', icon: 'lucide:music-2', href: 'https://tiktok.com' },
-    ],
-    timezone: 'America/Mexico_City',
-    /** Guadalajara no aplica horario de verano desde 2022. */
-    utcOffset: '-0600',
-    folioPrefix: 'NS',
-    siteUrl: 'https://noir-studio.pages.dev',
-    ogImage: '/og.png',
-  },
+  brand,
 
   /** Horario del negocio. 0 = domingo … 6 = sábado. `null` = cerrado. */
   businessHours: {

@@ -11,8 +11,14 @@ useSeoMeta({
   <div>
     <LandingHero />
     <LandingServices />
-    <LandingTeam />
-    <LandingTestimonials />
-    <LandingLocation />
+    <SharedDefer id="equipo" min-height="900px">
+      <LazyLandingTeam />
+    </SharedDefer>
+    <SharedDefer id="opiniones" min-height="560px">
+      <LazyLandingTestimonials />
+    </SharedDefer>
+    <SharedDefer id="ubicacion" min-height="640px">
+      <LazyLandingLocation />
+    </SharedDefer>
   </div>
 </template>

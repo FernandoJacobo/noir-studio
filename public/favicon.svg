@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>.b{fill:#141415}.c{stroke:#F4F4F3}.d{fill:#F4F4F3}@media (prefers-color-scheme:dark){.b{fill:#EDEDEF}.c{stroke:#0B0B0C}.d{fill:#0B0B0C}}</style>
+  <rect class="b" x="1" y="1" width="30" height="30" rx="8"/>
+  <path class="c" d="M9 23 L23 9" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="20.5" cy="20.5" r="3.2" fill="none" stroke="#C9B38A" stroke-width="2"/>
+  <circle class="d" cx="11.5" cy="11.5" r="1.7"/>
+</svg>

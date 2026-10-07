@@ -3,7 +3,7 @@ import { TooltipProvider } from 'reka-ui'
 import { Toaster } from 'vue-sonner'
 import 'vue-sonner/style.css'
 
-const { brand, copy } = useAppConfig()
+const { brand } = useAppConfig()
 const settings = useSettingsStore()
 const colorMode = useColorMode()
 
@@ -19,26 +19,9 @@ watchEffect(() => {
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', colorMode.value === 'light' ? '#F4F4F3' : '#0B0B0C')
 })
 
-const ogImage = `${brand.siteUrl}${brand.ogImage}`
-
+// Las metas Open Graph viven en nuxt.config.ts para que estén en el HTML estático.
 useHead({
   titleTemplate: title => (title ? `${title} · ${brand.name}` : `${brand.name} — ${brand.slogan}`),
-})
-
-useSeoMeta({
-  description: brand.description,
-  ogType: 'website',
-  ogSiteName: brand.name,
-  ogTitle: `${brand.name} — ${brand.slogan}`,
-  ogDescription: copy.heroSubtitle,
-  ogImage,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
-  ogImageAlt: `${brand.name} · ${brand.giro}`,
-  ogLocale: 'es_MX',
-  ogUrl: brand.siteUrl,
-  twitterCard: 'summary_large_image',
-  twitterImage: ogImage,
 })
 </script>
 

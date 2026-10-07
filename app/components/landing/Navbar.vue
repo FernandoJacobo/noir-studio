@@ -22,7 +22,7 @@ watch(() => route.fullPath, () => (menuOpen.value = false))
     )"
   >
     <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6" aria-label="Principal">
-      <NuxtLink to="/" class="rounded-lg" aria-label="Inicio">
+      <NuxtLink to="/" class="rounded-lg">
         <SharedLogo />
       </NuxtLink>
 

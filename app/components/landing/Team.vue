@@ -4,7 +4,7 @@ const staff = useStaffStore()
 </script>
 
 <template>
-  <section id="equipo" class="scroll-mt-20 border-y border-border bg-surface/40" aria-labelledby="equipo-title">
+  <section class="border-y border-border bg-surface/40" aria-labelledby="equipo-title">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
       <SharedSectionHeading id="equipo-title" eyebrow="Equipo" :title="copy.teamTitle" :subtitle="copy.teamSubtitle" />
 

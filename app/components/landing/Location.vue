@@ -19,7 +19,7 @@ function rangeText(ranges: { start: number, end: number }[] | null) {
 </script>
 
 <template>
-  <section id="ubicacion" class="mx-auto max-w-6xl scroll-mt-20 px-4 pb-20 sm:px-6 sm:pb-28" aria-labelledby="ubicacion-title">
+  <section class="mx-auto max-w-6xl px-4 pb-20 sm:px-6 sm:pb-28" aria-labelledby="ubicacion-title">
     <SharedSectionHeading id="ubicacion-title" eyebrow="Ubicación" :title="copy.locationTitle" :subtitle="copy.locationSubtitle" />
 
     <div class="mt-12 grid gap-4 lg:grid-cols-[1.25fr_1fr]">

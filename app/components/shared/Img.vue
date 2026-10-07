@@ -31,7 +31,7 @@ watch(() => props.src, () => {
       <Icon :name="icon" class="relative size-7 text-muted/60" />
     </div>
     <template v-else>
-      <div v-if="!loaded" class="absolute inset-0 skeleton" />
+      <div v-if="!loaded && !eager" class="absolute inset-0 skeleton" />
       <img
         :src="src"
         :alt="alt"
@@ -40,7 +40,7 @@ watch(() => props.src, () => {
         :loading="eager ? 'eager' : 'lazy'"
         :fetchpriority="eager ? 'high' : undefined"
         decoding="async"
-        :class="cn('size-full object-cover transition-opacity duration-500', loaded ? 'opacity-100' : 'opacity-0', props.imgClass)"
+        :class="cn('size-full object-cover', !eager && 'transition-opacity duration-500', loaded || eager ? 'opacity-100' : 'opacity-0', props.imgClass)"
         @load="loaded = true"
         @error="failed = true"
       >

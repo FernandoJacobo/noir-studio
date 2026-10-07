@@ -64,10 +64,10 @@ const rating = copy.heroStats[0]
       <div class="relative mx-auto w-full max-w-md lg:max-w-none" aria-hidden="true">
         <div class="relative aspect-[4/5] overflow-hidden rounded-[20px] border border-border shadow-[0_40px_80px_-30px_rgb(var(--shadow-color)/0.6)]">
           <SharedImg
-            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=70"
+            :src="brand.heroImage"
             :alt="`Interior de ${brand.name}`"
-            :width="900"
-            :height="1125"
+            :width="720"
+            :height="900"
             eager
             class="size-full"
             img-class="grayscale-[35%] contrast-[1.05]"

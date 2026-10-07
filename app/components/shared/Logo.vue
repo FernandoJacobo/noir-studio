@@ -19,7 +19,7 @@ const { brand } = useAppConfig()
       <circle cx="20.5" cy="20.5" r="3.2" fill="none" stroke="var(--accent)" stroke-width="2" />
       <circle cx="11.5" cy="11.5" r="1.7" fill="var(--background)" />
     </svg>
-    <span v-if="!compact" class="flex items-baseline gap-1.5 leading-none">
+    <span v-if="!compact" class="flex items-baseline gap-1.5 leading-none" aria-hidden="true">
       <span :class="cn('font-semibold tracking-[0.22em]', size === 'lg' ? 'text-xl' : size === 'sm' ? 'text-[13px]' : 'text-[15px]')">{{ brand.wordmark }}</span>
       <span v-if="brand.wordmarkSuffix" :class="cn('text-display text-muted', size === 'lg' ? 'text-xl' : size === 'sm' ? 'text-sm' : 'text-base')">{{ brand.wordmarkSuffix }}</span>
     </span>

@@ -66,7 +66,7 @@ const iconFor = (cat: string) => serviceCategories.find(c => c.id === cat)?.icon
               <Icon name="lucide:clock" class="size-3.5" />
               {{ formatDuration(service.duration) }}
             </span>
-            <UiButton :to="{ path: '/reservar', query: { servicio: service.id } }" variant="secondary" size="sm" pill :aria-label="`Reservar ${service.name}`">
+            <UiButton :to="{ path: '/reservar', query: { servicio: service.id } }" variant="secondary" size="sm" pill :aria-label="`Reservar este servicio: ${service.name}`">
               Reservar este servicio
               <Icon name="lucide:arrow-right" class="size-3.5" />
             </UiButton>
